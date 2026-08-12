@@ -1,4 +1,4 @@
-char	*strcat(char *dst, const char *src)
+char	*gm_strcat(char *dst, const char *src)
 {
 	int i = 0;
 	int j = 0;
