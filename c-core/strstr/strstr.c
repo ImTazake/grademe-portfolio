@@ -1,4 +1,4 @@
-char	*strstr(const char *haystack, const char *needle)
+char	*gm_strstr(const char *haystack, const char *needle)
 {
 	const char	*start;
 	const char	*s;
