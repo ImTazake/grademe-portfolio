@@ -4,10 +4,9 @@
 void	print_pyramid(int n)
 {
 {
-	int	i;
+	int	i = 1;
 	int	j;
 
-	i = 1;
 	while (i <= n)
 	{
 		j = 0;
