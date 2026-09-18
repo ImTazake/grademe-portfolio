@@ -24,10 +24,8 @@ void	times_table(char *str)
 int	main(int argc, char **argv)
 {
 	if (argc != 2)
-	{
 		write (1, "wrong number of arguments\n", 26);
-		return (0);
-	}
-	times_table(argv[1]);
+	else
+		times_table(argv[1]);
 	return (0);
 }
