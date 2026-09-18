@@ -12,10 +12,7 @@ void	times_table(char *str)
 	int i = 0;
 	while (++i <= 9)
 	{
-		putnbr (i);
-		write (1, " x ", 3);
-		write (1, str, 1);
-		write (1, " = ", 3);
+		write (1, (char[]){"0123456789"[i], ' ', 'x', ' ', str[0], ' ', '=', ' '}, 8);
 		putnbr (i * (str[0] - '0'));
 		write (1, "\n", 1);
 	}
