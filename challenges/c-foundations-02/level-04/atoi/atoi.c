@@ -1,21 +1,21 @@
-#include <unistd.h>
 int atoi(const char *str)
 {
-	int i = 0;
+	int index = 0;
 	int sign = 1;
-	int num = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	int number = 0;
+
+	while (str[index] == ' ' || str[index] == '\t')
+		index++;
+	if (str[index] == '+' || str[index] == '-')
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		if (str[index] == '-')
+			sign = -1;
+		index++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[index] >= '0' && str[index] <= '9')
 	{
-		num = num * 10 + (str[i] - '0');
-		i++;
-	}
-	return (num * sign);
+		number = number * 10 + (str[index] - '0');
+		index++;
+	}	
+	return (sign * number);
 }

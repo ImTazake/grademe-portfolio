@@ -1,9 +1,14 @@
-#include <stdlib.h>
-char	*strchr(const char *s, int c)
+#include <stddef.h>
+
+char    *strchr(const char *s, int c)
 {
-	while (*s && *s != c)
-		s++;
-	if (*s == c)
-		return ((char *)s);
-	return (NULL);
+    while (*s)
+    {
+        if (*s == (char)c)
+            return ((char *)s);
+        s++;
+    }
+    if (*s == (char)c)
+        return ((char *)s);
+    return (NULL);
 }
