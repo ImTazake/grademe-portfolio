@@ -6,5 +6,6 @@ Print each CLI argument on its own line, starting from the last
 **Allowed functions:** write
 
 Solved in practice.
+Validated 2 times. Earlier versions are in this file's git history.
 
 [Read the full exercise on Grademe](https://grademe.io/app/exercise/args-rev)
