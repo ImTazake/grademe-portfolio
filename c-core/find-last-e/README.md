@@ -1,4 +1,4 @@
-# find_last_e
+# find\_last\_e
 
 Display the last lowercase 'e' found in a string
 
@@ -6,5 +6,6 @@ Display the last lowercase 'e' found in a string
 **Allowed functions:** write
 
 Solved in practice.
+Validated 2 times. Earlier versions are in this file's git history.
 
 [Read the full exercise on Grademe](https://grademe.io/app/exercise/find-last-e)
