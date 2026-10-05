@@ -10,13 +10,11 @@ void	histogram(char *args)
 }
 int	main(int argc, char **argv)
 {
-	if(argc < 2)
-	{
-		write(1, "wrong number of arguments\n", 26);
-		return (0);
-	}
 	int i = 0;
-	while (++i < argc)
-		histogram(argv[i]);
+	if(argc < 2)
+		write(1, "wrong number of arguments\n", 26);
+	else
+		while (++i < argc)
+			histogram(argv[i]);
 	return (0);
 }
