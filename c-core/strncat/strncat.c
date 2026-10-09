@@ -1,10 +1,8 @@
 char	*gm_strncat(char *dst, const char *src, unsigned int n)
 {
-	unsigned int	i;
-	unsigned int	j;
+	unsigned int	i = 0;
+	unsigned int	j = 0;
 
-	i = 0;
-	j = 0;
 	while (dst[i])
 		i++;
 	while (src[j] && j < n)
