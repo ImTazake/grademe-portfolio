@@ -1,42 +1,31 @@
+static void add_nbr(unsigned long nbr, char *out, int *index, int round)
+{
+	if (round == 0 && nbr < 10)
+		out[(*index)++] = '0';
+	if (nbr >= 10)
+		add_nbr(nbr / 10, out, index, 1);
+	out[(*index)++] = "0123456789"[nbr % 10];
+}
+
 int	money_format(long cents, char *out)
 {
-	unsigned long	n;
-	int				len;
-	int				start;
-	int				end;
-	char			tmp;
+	int index = 0;
+	unsigned long cent;
 
-	len = 0;
 	if (cents < 0)
 	{
-		out[len++] = '-';
-		n = (unsigned long)(-(cents + 1)) + 1;
+		out[index++] = '-';
+		cent = -(unsigned long)cents;
 	}
 	else
-		n = (unsigned long)cents;
-	start = len;
-	n /= 100;
-	if (n == 0)
-		out[len++] = '0';
-	while (n > 0)
-	{
-		out[len++] = '0' + n % 10;
-		n /= 10;
-	}
-	end = len - 1;
-	while (start < end)
-	{
-		tmp = out[start];
-		out[start++] = out[end];
-		out[end--] = tmp;
-	}
-	out[len++] = '.';
-	if (cents < 0)
-		n = (unsigned long)(-(cents + 1)) + 1;
-	else
-		n = (unsigned long)cents;
-	out[len++] = '0' + (n / 10) % 10;
-	out[len++] = '0' + n % 10;
-	out[len] = '\0';
-	return (len);
+		cent = (unsigned long)cents;
+
+	unsigned long div = cent / 100;
+	unsigned long mod = cent % 100;
+
+	add_nbr(div, out, &index, 1);
+	out[index++] = '.';
+	add_nbr(mod, out, &index, 0);
+	out[index] = '\0';
+	return (index);
 }
