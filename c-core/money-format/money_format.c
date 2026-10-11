@@ -20,12 +20,9 @@ int	money_format(long cents, char *out)
 	else
 		cent = (unsigned long)cents;
 
-	unsigned long div = cent / 100;
-	unsigned long mod = cent % 100;
-
-	add_nbr(div, out, &index, 1);
+	add_nbr(cent / 100, out, &index, 1);
 	out[index++] = '.';
-	add_nbr(mod, out, &index, 0);
+	add_nbr(cent % 100, out, &index, 0);
 	out[index] = '\0';
 	return (index);
 }
