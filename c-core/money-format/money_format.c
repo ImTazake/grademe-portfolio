@@ -1,16 +1,14 @@
-static void add_nbr(unsigned long nbr, char *out, int *index, int round)
+static void	add_nbr(unsigned long nbr, char *out, int *index)
 {
-	if (round == 0 && nbr < 10)
-		out[(*index)++] = '0';
 	if (nbr >= 10)
-		add_nbr(nbr / 10, out, index, 1);
+		add_nbr(nbr / 10, out, index);
 	out[(*index)++] = "0123456789"[nbr % 10];
 }
 
 int	money_format(long cents, char *out)
 {
-	int index = 0;
-	unsigned long cent;
+	int				index = 0;
+	unsigned long	cent;
 
 	if (cents < 0)
 	{
@@ -19,10 +17,11 @@ int	money_format(long cents, char *out)
 	}
 	else
 		cent = (unsigned long)cents;
-
-	add_nbr(cent / 100, out, &index, 1);
+	add_nbr(cent / 100, out, &index);
 	out[index++] = '.';
-	add_nbr(cent % 100, out, &index, 0);
+	if (cent % 100 < 10)
+		out[index++] = '0';
+	add_nbr(cent % 100, out, &index);
 	out[index] = '\0';
 	return (index);
 }
